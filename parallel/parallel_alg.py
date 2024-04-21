@@ -34,7 +34,7 @@ if __name__ == '__main__':
         for num in num_nodes:
             graph = generate_weighted_graph(num, density, weight_range)
             start_time = time.time()
-            result = floyd_warshall_parallel(graph)
+            result = floyd_warshall_parallel(graph, threads)
             execution_time = time.time() - start_time
             row_data.append(execution_time)
         data.append(row_data)
