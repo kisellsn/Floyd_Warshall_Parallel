@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     print("Parallel\n")
     data = []
-    for threads in range(60):
+    for threads in num_threads:
         row_data = [threads]
         for num in num_nodes:
             graph = generate_weighted_graph(num, density, weight_range)
