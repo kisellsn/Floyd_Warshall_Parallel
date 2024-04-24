@@ -9,9 +9,9 @@ from basic.basic_alg import floyd_warshall
 
 
 if __name__ == '__main__':
-    num_nodes = [100, 250, 500, 1000]  # Кількість вершин
-    density = 0.3  # Щільність графу (ймовірність існування ребра між вершинами)
-    weight_range = (1, 50)  # Діапазон ваг ребер
+    num_nodes = [100, 250, 500, 1000]
+    density = 0.3
+    weight_range = (1, 50)
 
     data = []
     columns = ['Num Nodes', 'Basic', 'Parallel', 'SpeedUp']

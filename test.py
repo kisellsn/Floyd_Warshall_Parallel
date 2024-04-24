@@ -1,16 +1,11 @@
 import time
-
 import pandas as pd
-
 from graph_generator import generate_weighted_graph
 from parallel import parallel_alg
 from basic.basic_alg import floyd_warshall
 import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    # Приклад використання:
     num_nodes = 100  # Кількість вершин
     density = 0.3  # Щільність графу (ймовірність існування ребра між вершинами)
     weight_range = (1, 50)  # Діапазон ваг ребер
