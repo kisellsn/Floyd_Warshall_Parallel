@@ -1,15 +1,17 @@
-
 import time
-import pandas as pd
 
-from graph_generator import generate_weighted_graph
+import pandas as pd
 from joblib import Parallel, delayed
+
+from graph_generator import Graph
+
 
 def worker(args):
     i, row, n, k, rowK = args
     for j in range(n):
         row[j] = min(row[j], row[k] + rowK[j])
     return i, row
+
 
 def floyd_warshall_parallel(graph, n_jobs=-1):
     n = graph.shape[0]
@@ -32,9 +34,11 @@ if __name__ == '__main__':
     for threads in num_threads:
         row_data = [threads]
         for num in num_nodes:
-            graph = generate_weighted_graph(num, density, weight_range)
+            graph = Graph(num_nodes[num])
+            graph.generate_weighted_graph(density, weight_range)
+
             start_time = time.time()
-            result = floyd_warshall_parallel(graph, threads)
+            result = floyd_warshall_parallel(graph.get_graph(), threads)
             execution_time = time.time() - start_time
             row_data.append(execution_time)
         data.append(row_data)
